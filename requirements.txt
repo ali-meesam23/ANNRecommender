@@ -2,3 +2,6 @@ pathlib
 pandas
 numpy
 alpha-vantage
+openpyxl
+xlrd
+xlwt
