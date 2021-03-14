@@ -8,6 +8,7 @@ from pathlib import Path
 from alpha_vantage.timeseries import TimeSeries
 import sys
 
+
 benchmark_index = read_yfinance("GSPC")
 benchmark_index = benchmark_index[
     (benchmark_index.index >= "2000") & (benchmark_index.index <= "2021")

@@ -5,3 +5,5 @@ alpha-vantage
 openpyxl
 xlrd
 xlwt
+yfinance
+

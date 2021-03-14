@@ -7,12 +7,13 @@ from pathlib import Path
 from alpha_vantage.timeseries import TimeSeries
 import sys
 
-
+# CONSTITUENT OF ALL SP500 TICKERS PER MONTH
 df_constituents = pd.read_csv(
-    "https://raw.githubusercontent.com/fja05680/sp500/master/S%26P%20500%20Historical%20Components%20%26%20Changes(01-21-2021).csv",
+    "https://github.com/fja05680/sp500/blob/f56f97a09b3200fa01a2db659600021c42b9b59c/S&P%20500%20Historical%20Components%20&%20Changes(03-01-2021).csv",
     parse_dates=True,
     index_col=0,
 ).sort_index(ascending=False)
+# ALPHA-VANTAGE OHLC TICKER DATA
 ALPHA_VANTAGE_DIR_PATH = Path("alphadata").absolute()
 SECRET = "RGBKTDQQ7C5071TJ"
 
@@ -60,6 +61,7 @@ def get_alpha_vantage(key, ticker, save_dir):
 
 current = 0
 master_time = time.perf_counter()
+
 for l in df_constituents.tickers.values:
     for ticker in l.split(","):
         if os.path.exists(ALPHA_VANTAGE_DIR_PATH / f"{ticker}.csv"):
